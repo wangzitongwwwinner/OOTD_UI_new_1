@@ -1,0 +1,6 @@
+{
+  "name": "今天穿什么",
+  "description": "智能通勤穿衣搭配决策助手，记住场景温度与个体体感，助您应对室外天气与地铁、办公室、商场等场景温差。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
