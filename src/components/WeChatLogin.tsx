@@ -59,60 +59,48 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
   };
 
   return (
-    <div id="login_screen" className="relative h-screen max-w-md mx-auto overflow-hidden font-sans antialiased shadow-2xl bg-[#181512]">
-      {/* Immersive Wardrobe Backdrop */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center w-full h-full transform scale-105"
-          style={{
-            backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuAB15KgcuodUGqDQ15zgslGtuMB-LeB2iYEueGjFWtoE2BeVWby0NlWwHieINcS-9fvC7q-Ooh2SuTP28AnRMBmB2h8PJsjOsW4I-6zfeUjcveB2zs4jr1cqiRPhLifCD_qrFy76sFzFdtP3tCyzxL_0l9iG_jg0vBX2QAupOwlPiIA_Dw_FZFXlCOH7gkgjVAmE80uCgz143g6Z65AX5unSTuwF9m-j4IDaHpDMnuBeQmapeixqAlCZA')`,
-          }}
-        />
-        {/* Scrim overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#181512]/60 via-[#181512]/30 to-[#181512]/80 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#181512]/95 to-transparent h-1/2 bottom-0 mt-auto" />
-      </div>
-
+    <div id="login_screen" className="relative h-screen max-w-md mx-auto overflow-hidden font-sans antialiased shadow-2xl bg-[#fafafa]">
       {/* Login Portal Main Body */}
-      <main className="relative z-10 h-full w-full flex flex-col justify-between px-6 py-12 md:py-16">
+      <main className="relative z-10 h-full w-full flex flex-col justify-between px-8 py-12 md:py-16">
         
         {/* Brand Header */}
-        <div className="flex flex-col items-center mt-12 md:mt-24 text-center">
-          <div className="w-20 h-20 rounded-full border border-white/20 flex items-center justify-center mb-6 overflow-hidden bg-white/5 shadow-inner">
+        <div className="flex flex-col items-center mt-16 md:mt-24 text-center">
+          <div className="w-24 h-24 mb-6 relative flex items-center justify-center rounded-full border border-gray-200 bg-white p-[2px] shadow-sm">
             <img
               src="https://lh3.googleusercontent.com/aida/AP1WRLuBsqWFJoZThX1yv_1LhttdSc2RnMEplVcXU9MN14ak2wbscabFsVcMxPQlXDYAAayEaPeL7_Dd_3BzsM0wMkBt9qQhAjXop7nCfYnMFqF92cknDgETUe3fZFYEqRZ0XRgI74jZyg1j693WJrxUViQQauXaebx7UiArrTMB7lJ8ezrJgPr3_TTTKNyWeJVa-Fzfj2bic4clpFhnc2880I8lE1gkUPciOelCU54SCUOGI1BbnbYXMbjAgz4"
               alt="Brand Logo"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover scale-110"
+              className="w-full h-full rounded-full object-cover"
             />
           </div>
-          <h1 className="font-serif text-3xl md:text-4xl text-white mb-2 tracking-tight drop-shadow-sm font-semibold">
+          <h1 className="font-serif text-3xl md:text-4xl text-gray-900 tracking-widest font-semibold">
             今天穿什么
           </h1>
-          <p className="font-sans text-sm md:text-base text-white/80 max-w-[280px] font-light leading-relaxed">
+          <div className="w-12 h-[1px] bg-gray-300 my-6"></div>
+          <p className="font-serif text-sm md:text-base text-gray-500 max-w-[280px] leading-relaxed tracking-widest">
             让每一天的穿衣决策，都成为一种享受。
           </p>
         </div>
 
         {/* Action Controls & Footer */}
-        <div className="w-full pb-8 md:pb-12">
+        <div className="w-full pb-8 md:pb-12 space-y-5">
           {/* WeChat Login Action Button */}
           <button
             id="wechat_login_btn"
             onClick={(e) => handleLoginClick(e, "wechat")}
-            className="w-full bg-[#07C160] hover:bg-[#06ad56] text-white rounded-full py-4 flex items-center justify-center space-x-2 transition-all active:scale-98 shadow-lg shadow-[#07C160]/20 mb-4 relative overflow-hidden group cursor-pointer"
+            className="w-full bg-[#07C160] hover:bg-[#06ad56] text-white rounded-full py-4 flex items-center justify-center space-x-2 transition-all active:scale-95 shadow-md shadow-[#07C160]/20 cursor-pointer border border-transparent"
           >
             <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>
               chat
             </span>
-            <span className="font-medium text-base tracking-wide font-sans">微信一键登录</span>
+            <span className="font-medium text-base tracking-widest font-sans">微信一键登录</span>
           </button>
 
           {/* Alternative Phone Login Button */}
           <button
             id="phone_login_trigger"
             onClick={() => setShowPhoneModal(true)}
-            className="w-full glass-panel text-white rounded-full py-4 font-sans text-sm tracking-wide transition-all hover:bg-white/20 active:scale-98 mb-8 cursor-pointer"
+            className="w-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 rounded-full py-4 font-sans text-base font-bold tracking-widest transition-all active:scale-95 shadow-sm cursor-pointer"
           >
             手机号登录 / 注册
           </button>
@@ -121,7 +109,7 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
           <div
             id="agreement_terms"
             className={`flex items-start justify-center space-x-2 px-4 transition-all duration-300 ${
-              isShaking ? "animate-[bounce_0.4s_ease-in-out_infinite] text-red-400" : ""
+              isShaking ? "animate-[bounce_0.4s_ease-in-out_infinite] text-red-500" : ""
             }`}
           >
             <div className="relative flex items-center mt-1">
@@ -130,10 +118,10 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
                 type="checkbox"
                 checked={isChecked}
                 onChange={(e) => setIsChecked(e.target.checked)}
-                className="w-4 h-4 rounded-sm border-white/40 bg-transparent text-[#181512] transition-all cursor-pointer accent-white focus:ring-0 focus:ring-offset-0 appearance-none border checked:bg-white checked:border-white"
+                className="w-4 h-4 rounded-sm border-gray-400 bg-white/50 text-gray-900 transition-all cursor-pointer accent-gray-900 focus:ring-0 focus:ring-offset-0 appearance-none border checked:bg-gray-900 checked:border-gray-900"
               />
               {isChecked && (
-                <span className="material-symbols-outlined absolute inset-0 text-xs text-[#181512] font-bold pointer-events-none flex items-center justify-center">
+                <span className="material-symbols-outlined absolute inset-0 text-xs text-white font-bold pointer-events-none flex items-center justify-center">
                   check
                 </span>
               )}
@@ -141,15 +129,15 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
             <label
               htmlFor="terms_checkbox"
               className={`font-sans text-xs leading-tight cursor-pointer text-center select-none ${
-                isShaking ? "text-red-300 font-semibold" : "text-white/60"
+                isShaking ? "text-red-500 font-semibold" : "text-gray-500"
               }`}
             >
               已阅读并同意{" "}
-              <a href="#" onClick={(e) => e.stopPropagation()} className="text-white hover:underline underline-offset-2">
+              <a href="#" onClick={(e) => e.stopPropagation()} className="text-gray-800 hover:text-black hover:underline underline-offset-2">
                 《用户协议》
               </a>{" "}
               和{" "}
-              <a href="#" onClick={(e) => e.stopPropagation()} className="text-white hover:underline underline-offset-2">
+              <a href="#" onClick={(e) => e.stopPropagation()} className="text-gray-800 hover:text-black hover:underline underline-offset-2">
                 《隐私政策》
               </a>
             </label>
@@ -159,24 +147,24 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
 
       {/* Beautiful Modal for Phone OTP Login */}
       {showPhoneModal && (
-        <div className="absolute inset-0 z-50 bg-black/80 flex items-end justify-center md:items-center">
-          <div className="w-full md:max-w-md bg-[#faf9f7] rounded-t-3xl md:rounded-3xl p-6 shadow-2xl flex flex-col space-y-6 animate-[slideUp_0.3s_ease-out_forwards]">
-            <div className="flex justify-between items-center pb-2 border-b border-gray-200">
-              <h3 className="font-serif text-lg font-bold text-gray-900">手机号安全登录</h3>
+        <div className="absolute inset-0 z-50 bg-gray-900/40 backdrop-blur-sm flex items-end justify-center md:items-center transition-all">
+          <div className="w-full md:max-w-md bg-white/80 backdrop-blur-2xl border-t border-white/60 md:border rounded-t-[2rem] md:rounded-3xl p-8 shadow-2xl flex flex-col space-y-6 animate-[slideUp_0.3s_ease-out_forwards]">
+            <div className="flex justify-between items-center pb-3 border-b border-gray-200/50">
+              <h3 className="font-serif text-xl font-semibold text-gray-900 tracking-wider">手机号安全登录</h3>
               <button
                 id="close_phone_modal"
                 onClick={() => setShowPhoneModal(false)}
-                className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-500 cursor-pointer"
+                className="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-gray-600 cursor-pointer transition-colors"
               >
                 <span className="material-symbols-outlined text-xl">close</span>
               </button>
             </div>
 
-            <form onSubmit={handlePhoneSubmit} className="flex flex-col space-y-4">
-              <div className="flex flex-col space-y-1">
+            <form onSubmit={handlePhoneSubmit} className="flex flex-col space-y-5">
+              <div className="flex flex-col space-y-2">
                 <label className="text-xs text-gray-500 font-semibold uppercase tracking-wider">手机号码</label>
                 <div className="flex space-x-2">
-                  <div className="bg-gray-100 border border-gray-200 rounded-lg px-3 py-3 text-sm text-gray-600 font-medium">
+                  <div className="bg-white/50 border border-gray-200/60 rounded-xl px-4 py-3 text-sm text-gray-600 font-medium flex items-center shadow-sm">
                     +86
                   </div>
                   <input
@@ -186,12 +174,12 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
                     maxLength={11}
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ""))}
-                    className="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-3 text-sm text-gray-900 focus:outline-none focus:border-[#181512] transition-all"
+                    className="flex-1 bg-white/50 border border-gray-200/60 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-gray-400 focus:bg-white transition-all shadow-sm placeholder:text-gray-400"
                   />
                 </div>
               </div>
 
-              <div className="flex flex-col space-y-1">
+              <div className="flex flex-col space-y-2">
                 <label className="text-xs text-gray-500 font-semibold uppercase tracking-wider">短信验证码</label>
                 <div className="flex space-x-2">
                   <input
@@ -201,14 +189,14 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
                     maxLength={6}
                     value={smsCode}
                     onChange={(e) => setSmsCode(e.target.value.replace(/\D/g, ""))}
-                    className="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-3 text-sm text-gray-900 focus:outline-none focus:border-[#181512] transition-all"
+                    className="flex-1 bg-white/50 border border-gray-200/60 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-gray-400 focus:bg-white transition-all shadow-sm placeholder:text-gray-400"
                   />
                   <button
                     id="send_sms_btn"
                     type="button"
                     disabled={phoneNumber.length !== 11 || isSendingSms}
                     onClick={sendSms}
-                    className="bg-[#181512] text-white disabled:bg-gray-300 disabled:text-gray-500 text-xs font-semibold px-4 rounded-lg transition-all active:scale-95 cursor-pointer"
+                    className="bg-gray-900 text-white disabled:bg-gray-200 disabled:text-gray-400 text-xs font-semibold px-5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-md disabled:shadow-none"
                   >
                     {isSendingSms ? "发送中..." : smsSent ? "重新发送" : "获取验证码"}
                   </button>
@@ -220,7 +208,7 @@ export default function WeChatLogin({ onLoginSuccess, initialUser }: WeChatLogin
                 type="submit"
                 onClick={(e) => handleLoginClick(e, "phone_submit")}
                 disabled={phoneNumber.length !== 11 || smsCode.length !== 6}
-                className="w-full bg-[#181512] text-white disabled:bg-gray-300 disabled:text-gray-500 rounded-full py-4 text-sm font-semibold tracking-wide transition-all active:scale-95 shadow-lg shadow-black/10 cursor-pointer mt-2"
+                className="w-full bg-gray-900 text-white disabled:bg-gray-200 disabled:text-gray-400 rounded-2xl py-4 text-sm font-bold tracking-widest transition-all active:scale-95 shadow-lg shadow-gray-900/20 disabled:shadow-none cursor-pointer mt-4"
               >
                 确认登录
               </button>

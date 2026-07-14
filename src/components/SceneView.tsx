@@ -235,14 +235,14 @@ export default function SceneView({ scenes, onAddScene, onUpdateScene, onDeleteS
                 <input
                   type="range"
                   min={10}
-                  max={35}
+                  max={40}
                   value={temperature}
                   onChange={(e) => setTemperature(Number(e.target.value))}
                   className="w-full accent-black cursor-pointer bg-gray-100 h-1.5 rounded-lg appearance-none"
                 />
                 <div className="flex justify-between text-[10px] text-gray-400">
                   <span>10°C (极冷空调/寒冬)</span>
-                  <span>35°C (酷暑无冷气)</span>
+                  <span>40°C (酷暑无冷气)</span>
                 </div>
               </div>
 

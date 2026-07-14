@@ -158,7 +158,7 @@ export default function WardrobeView({ clothingList, onAddClothing, onDeleteClot
   return (
     <div id="wardrobe_screen" className="relative pb-28 min-h-screen bg-[#faf9f7] text-[#1a1c1b] font-sans max-w-md mx-auto shadow-xl">
       {/* Editorial Header bar */}
-      <div className="px-6 pt-10 pb-4 flex justify-between items-end">
+      <div className="sticky top-0 z-30 bg-[#faf9f7] px-6 pt-10 pb-4 flex justify-between items-end">
         <div className="flex flex-col">
           <h2 className="font-serif text-3xl font-bold tracking-tight text-gray-900">我的衣橱</h2>
           <span className="text-xs text-gray-400 mt-1">
